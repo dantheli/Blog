@@ -11,7 +11,7 @@ final class Post: Model {
     var author: String
     var content: String
     
-    init(title: String, content: String) {
+    init(title: String, author: String, content: String) {
         self.id = UUID().uuidString.makeNode()
         self.title = title
         self.date = Int(Date().timeIntervalSince1970)
