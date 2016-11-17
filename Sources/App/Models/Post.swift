@@ -8,12 +8,14 @@ final class Post: Model {
     
     var title: String
     var date: Int
+    var author: String
     var content: String
     
     init(title: String, content: String) {
         self.id = UUID().uuidString.makeNode()
         self.title = title
         self.date = Int(Date().timeIntervalSince1970)
+        self.author = author
         self.content = content
     }
 
@@ -21,6 +23,7 @@ final class Post: Model {
         id = try node.extract("id")
         title = try node.extract("title")
         date = try node.extract("date")
+        author = try node.extract("author")
         content = try node.extract("content")
     }
 
@@ -29,6 +32,7 @@ final class Post: Model {
             "id": id,
             "title": title,
             "date": date,
+            "author": author,
             "content": content
         ])
     }
@@ -40,6 +44,7 @@ extension Post: Preparation {
             posts.id()
             posts.string("title")
             posts.int("date")
+            posts.string("author")
             posts.string("content")
         }
     }
