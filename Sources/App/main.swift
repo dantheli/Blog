@@ -10,8 +10,7 @@ app.preparations = [Post.self]
 try app.addProvider(VaporPostgreSQL.Provider.self)
 
 let console = ConsoleDestination()
-let file = FileDestination()
-let swiftyBeaverProvider = SwiftyBeaverProvider(destinations: [console, file])
+let swiftyBeaverProvider = SwiftyBeaverProvider(destinations: [console])
 app.addProvider(swiftyBeaverProvider)
 
 let log = app.log.self
