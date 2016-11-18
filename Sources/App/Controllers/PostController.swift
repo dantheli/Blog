@@ -7,11 +7,8 @@ final class PostController: ResourceRepresentable {
     }
 
     func create(request: Request) throws -> ResponseRepresentable {
-        log.info("About to create Post")
         var post = try request.post()
-        log.info("Created Post object from data")
         try post.save()
-        log.info("Saved to disk")
         return post
     }
 
